@@ -20,4 +20,8 @@ Successfully run update package
 # Download Docker Desktop
 
 
+`docker ps`
+`docker image ls`
+`docker run -it ubuntu`
+
 
