@@ -1,5 +1,5 @@
 ---
-title: Test
+title: Sentiment Analysis App
 emoji: 🚀
 colorFrom: green
 colorTo: purple
