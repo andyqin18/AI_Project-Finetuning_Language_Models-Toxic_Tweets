@@ -1,3 +1,14 @@
+---
+title: Test
+emoji: 🚀
+colorFrom: green
+colorTo: purple
+sdk: streamlit
+sdk_version: 1.17.0
+app_file: app.py
+pinned: false
+---
+
 # AI Project: Finetuning Language Models - Toxic Tweets
 
 Hello! This is a project for CS-UY 4613: Artificial Intelligence. I'm providing a step-by-step instruction on finetuning language models for detecting toxic tweets.
