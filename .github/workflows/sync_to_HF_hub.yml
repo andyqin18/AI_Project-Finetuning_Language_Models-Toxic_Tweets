@@ -17,4 +17,4 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://andyqin18:$HF_TOKEN@huggingface.co/spaces/andyqin18/sentiment-analysis-app main
+        run: git push --force https://andyqin18:$HF_TOKEN@huggingface.co/spaces/andyqin18/sentiment-analysis-app main
