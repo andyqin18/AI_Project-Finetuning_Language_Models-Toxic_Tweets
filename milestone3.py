@@ -14,10 +14,22 @@ res = classifier(["I am very happy now.", "Not happy now."])
 for result in res:
     print(result)
 
+# Separate each word as a token
 tokens = tokenizer.tokenize("I am very happy now.")
+
+# Generate a list of IDs, each ID for each token
 token_ids = tokenizer.convert_tokens_to_ids(tokens)
+
+# Return a dict with IDs
 input_ids = tokenizer("I am very happy now.")
 
 print(f'Tokens:{tokens}')
 print(f'TokenIDs:{token_ids}')
 print(f'InputIDs:{input_ids}')
+
+X_train = ["We are very happy to show you the Transformers library.", 
+           "Hope you don't hate it"]
+
+batch = tokenizer(X_train, padding=True, truncation=True, max_length=512, return_tensors="pt")
+
+
