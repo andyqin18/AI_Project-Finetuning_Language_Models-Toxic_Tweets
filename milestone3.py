@@ -9,6 +9,7 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
+print(classifier.__class__)
 res = classifier(["I am very happy now.", "Not happy now."])
 
 for result in res:
