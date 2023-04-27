@@ -18,6 +18,8 @@ st.write("Currently it uses pre-trained models without fine-tuning.")
 
 # Model hub
 model_descrip = {
+    "andyqin18/test-finetuned": "This is a customized BERT-base finetuned model that detects multiple toxicity for a text. \
+        Labels: toxic, severe_toxic, obscene, threat, insult, identity_hate",
     "distilbert-base-uncased-finetuned-sst-2-english": "This model is a fine-tune checkpoint of DistilBERT-base-uncased, fine-tuned on SST-2. \
         Labels: POSITIVE; NEGATIVE ",
     "cardiffnlp/twitter-roberta-base-sentiment": "This is a roBERTa-base model trained on ~58M tweets and finetuned for sentiment analysis with the TweetEval benchmark. \
