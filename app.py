@@ -34,7 +34,7 @@ model_descrip = {
         Labels: POS; NEU; NEG"
 }
 
-user_input = st.text_input("Enter your text:", value="NYU is the better than Columbia.")
+user_input = st.text_input("Enter your text:", value="I hate NLP. Always lacking GPU.")
 user_model = st.selectbox("Please select a model:", model_descrip)
 
 
