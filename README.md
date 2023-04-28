@@ -19,7 +19,7 @@ This milestone includes finetuning a language model in HuggingFace for sentiment
 
 Link to app: https://huggingface.co/spaces/andyqin18/sentiment-analysis-app
 
-Here's the setup block:
+Here's the setup block that includes all modules:
 ```
 import pandas as pd
 import numpy as np
