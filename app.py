@@ -61,31 +61,37 @@ if st.button("Analyze"):
                             }
                 st.dataframe(pd.DataFrame(result_dict))
 
-                # 10 Sample Table
-                if st.button("Click to generate ten sample analysis"):
-                    with st.spinner("Hang on.... Analyzing..."):
-                        df = pd.read_csv("milestone3/comp/test_comment.csv")
-                        test_texts = df["comment_text"].values
-                        sample_texts = np.random.choice(test_texts, size=sample_text_num, replace=False)
+                # 10 Sample Table                       
+                sample_texts = [
+                    "Please stop. If you continue to vandalize Wikipedia, as you did to Homosexuality, you will be blocked from editing.",
+                    "knock it off you bloody CWI trot",
+                    "No, he is an arrogant, self serving, immature idiot. Get it right.",
+                    "to fuck you and ur family",
+                    "Search Google, it's listed as 1966 everywhere I've seen, including many PJ related sites.",
+                    "That entry made a lot of sense to me. ",
+                    "KSchwartz is an annoying person who often smells of rotten fish and burnt animal hair.",
+                    "Cool!",
+                    "u suck u suck u suck u suck u sucku suck u suck u suck u suck u u suck",
+                    "go fuck yourself ...cunt"
+                    ]
 
-                        init_table_dict = {
-                                    "Text": [],
-                                    "Highest Toxicity Class": [],
-                                    "Highest Score": [],
-                                    "Second Highest Toxicity Class": [],
-                                    "Second Highest Score": []
-                                        }
+                init_table_dict = {
+                            "Text": [],
+                            "Highest Toxicity Class": [],
+                            "Highest Score": [],
+                            "Second Highest Toxicity Class": [],
+                            "Second Highest Score": []
+                                }
 
-                        for text in sample_texts:
-                            result = analyze(fine_tuned_model, text[:50], top_k=2)
-                            init_table_dict["Text"].append(text[:50])
-                            init_table_dict["Highest Toxicity Class"].append(result[0][0]['label'])
-                            init_table_dict["Highest Score"].append(result[0][0]['score'])
-                            init_table_dict["Second Highest Toxicity Class"].append(result[0][1]['label'])
-                            init_table_dict["Second Highest Score"].append(result[0][1]['score'])
-                        st.dataframe(pd.DataFrame(init_table_dict))
-                else:
-                    st.write("( ─ ‿ ‿ ─ )")
+                for text in sample_texts:
+                    result = analyze(fine_tuned_model, text[:50], top_k=2)
+                    init_table_dict["Text"].append(text[:50])
+                    init_table_dict["Highest Toxicity Class"].append(result[0][0]['label'])
+                    init_table_dict["Highest Score"].append(result[0][0]['score'])
+                    init_table_dict["Second Highest Toxicity Class"].append(result[0][1]['label'])
+                    init_table_dict["Second Highest Score"].append(result[0][1]['score'])
+                st.dataframe(pd.DataFrame(init_table_dict))
+                st.write("( ─ ‿ ‿ ─ )")
 
 
             else:

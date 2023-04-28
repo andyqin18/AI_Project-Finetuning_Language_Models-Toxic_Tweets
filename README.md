@@ -13,12 +13,13 @@ pinned: false
 
 Hello! This is a project for CS-UY 4613: Artificial Intelligence. I'm providing a step-by-step instruction on finetuning language models for detecting toxic tweets.
 
-# Milestone 2
+# Milestone 3
 
-This milestone includes creating a Streamlit app in HuggingFace for sentiment analysis.
+This milestone includes finetuning a language model in HuggingFace for sentiment analysis.
 
 Link to app: https://huggingface.co/spaces/andyqin18/sentiment-analysis-app
 
+## 1. Space setup
 ## 1. Space setup
 
 After creating a HuggingFace account, we can create our app as a space and choose Streamlit as the space SDK.
