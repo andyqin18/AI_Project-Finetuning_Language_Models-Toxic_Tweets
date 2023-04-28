@@ -18,9 +18,9 @@ def analyze(model_name: str, text: str, top_k=1) -> dict:
     return classifier(text)
 
 # App title 
-st.title("Sentiment Analysis App - Milestone2")
+st.title("Sentiment Analysis App - Milestone3")
 st.write("This app is to analyze the sentiments behind a text.")
-st.write("Currently it uses pre-trained models without fine-tuning.")
+st.write("You can choose to use my fine-tuned model or pre-trained models.")
 
 # Model hub
 model_descrip = {
@@ -34,25 +34,7 @@ model_descrip = {
         Labels: POS; NEU; NEG"
 }
 
-df = pd.read_csv("/milestone3/comp/test_comment.csv")
-test_texts = df["comment_text"].values
-sample_texts = np.random.choice(test_texts, size=sample_text_num, replace=False)
 
-init_table_dict = {
-            "Text": [],
-            "Highest Toxicity Class": [],
-            "Highest Score": [],
-            "Second Highest Toxicity Class": [],
-            "Second Highest Score": []
-                }
-
-for text in sample_texts:
-    result = analyze(fine_tuned_model, text, top_k=2)
-    init_table_dict["Text"].append(text[:50])
-    init_table_dict["Highest Toxicity Class"].append(result[0][0]['label'])
-    init_table_dict["Highest Score"].append(result[0][0]['score'])
-    init_table_dict["Second Highest Toxicity Class"].append(result[0][1]['label'])
-    init_table_dict["Second Highest Score"].append(result[0][1]['score'])
 
 
 user_input = st.text_input("Enter your text:", value="NYU is the better than Columbia.")
@@ -73,10 +55,38 @@ if st.button("Analyze"):
         with st.spinner("Hang on.... Analyzing..."):
             if user_model == fine_tuned_model:
                 result = analyze(user_model, user_input, top_k=2)
-                
+                result_dict = {
+                        "Text": [user_input],
+                        "Highest Toxicity Class": [result[0][0]['label']],
+                        "Highest Score": [result[0][0]['score']],
+                        "Second Highest Toxicity Class": [result[0][1]['label']],
+                        "Second Highest Score": [result[0][1]['score']]
+                            }
+                st.dataframe(pd.DataFrame(result_dict))
+                if st.button("Click to generate ten sample analysis"):
+                    df = pd.read_csv("milestone3/comp/test_comment.csv")
+                    test_texts = df["comment_text"].values
+                    sample_texts = np.random.choice(test_texts, size=sample_text_num, replace=False)
 
-                df = pd.DataFrame(init_table_dict)
-                st.dataframe(df)
+                    init_table_dict = {
+                                "Text": [],
+                                "Highest Toxicity Class": [],
+                                "Highest Score": [],
+                                "Second Highest Toxicity Class": [],
+                                "Second Highest Score": []
+                                    }
+
+                    for text in sample_texts:
+                        result = analyze(fine_tuned_model, text[:50], top_k=2)
+                        init_table_dict["Text"].append(text[:50])
+                        init_table_dict["Highest Toxicity Class"].append(result[0][0]['label'])
+                        init_table_dict["Highest Score"].append(result[0][0]['score'])
+                        init_table_dict["Second Highest Toxicity Class"].append(result[0][1]['label'])
+                        init_table_dict["Second Highest Score"].append(result[0][1]['score'])
+                        st.dataframe(pd.DataFrame(init_table_dict))
+                else:
+                    st.write("(─‿‿─)")
+
 
             else:
                 result = analyze(user_model, user_input)
