@@ -4,7 +4,7 @@ import numpy as np
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 
 # Define global variables
-FINE_TUNED_MODEL = "andyqin18/test-finetuned"
+FINE_TUNED_MODEL = "andyqin18/finetuned-bert-uncased"
 NUM_SAMPLE_TEXT = 10
 
 # Define analyze function
