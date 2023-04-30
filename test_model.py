@@ -6,8 +6,8 @@ from tqdm import tqdm
 
 
 # Global var
-TEST_SIZE = 1000
-FINE_TUNED_MODEL = "andyqin18/test-finetuned"
+TEST_SIZE = 2000
+FINE_TUNED_MODEL = "andyqin18/finetuned-bert-uncased"
 
 
 # Define analyze function
@@ -77,8 +77,8 @@ for comment_idx in tqdm(range(TEST_SIZE), desc="Analyzing..."):
 
 # Calculate performance
 performance = {}
-performance["label_accuracy"] = total_true/(len(labels) * TEST_SIZE)
-performance["prediction_accuracy"] = total_success/TEST_SIZE
-performance["precision"] = TP / (TP + FP)
-performance["recall"] = TP / (TP + FN)
+performance["label_accuracy"] = total_true/(len(labels) * TEST_SIZE)  # Success prediction of each label
+performance["prediction_accuracy"] = total_success/TEST_SIZE  # Success prediction of all 6 labels for 1 sample
+performance["precision"] = TP / (TP + FP)  # Label precision
+performance["recall"] = TP / (TP + FN)  # Label recall
 print(performance)

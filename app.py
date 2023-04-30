@@ -18,7 +18,7 @@ def analyze(model_name: str, text: str, top_k=1) -> dict:
     return classifier(text)
 
 # App title 
-st.title("Sentiment Analysis App - Milestone3")
+st.title("Toxic Tweet Detection and Sentiment Analysis App")
 st.write("This app is to analyze the sentiments behind a text.")
 st.write("You can choose to use my fine-tuned model or pre-trained models.")
 
