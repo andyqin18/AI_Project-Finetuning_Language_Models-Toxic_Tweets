@@ -4,8 +4,8 @@ import numpy as np
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 
 # Define global variables
-fine_tuned_model = "andyqin18/test-finetuned"
-sample_text_num = 10
+FINE_TUNED_MODEL = "andyqin18/test-finetuned"
+NUM_SAMPLE_TEXT = 10
 
 # Define analyze function
 def analyze(model_name: str, text: str, top_k=1) -> dict:
@@ -24,7 +24,7 @@ st.write("You can choose to use my fine-tuned model or pre-trained models.")
 
 # Model hub
 model_descrip = {
-    fine_tuned_model: "This is a customized BERT-base finetuned model that detects multiple toxicity for a text. \
+    FINE_TUNED_MODEL: "This is a customized BERT-base finetuned model that detects multiple toxicity for a text. \
         Labels: toxic, severe_toxic, obscene, threat, insult, identity_hate",
     "distilbert-base-uncased-finetuned-sst-2-english": "This model is a fine-tune checkpoint of DistilBERT-base-uncased, fine-tuned on SST-2. \
         Labels: POSITIVE; NEGATIVE ",
@@ -50,7 +50,7 @@ if st.button("Analyze"):
     else:
         with st.spinner("Hang on.... Analyzing..."):
             # If fine-tuned
-            if user_model == fine_tuned_model:
+            if user_model == FINE_TUNED_MODEL:
                 result = analyze(user_model, user_input, top_k=2)  # Top 2 labels with highest score
                 result_dict = {
                         "Text": [user_input],
@@ -84,7 +84,7 @@ if st.button("Analyze"):
                                 }
 
                 for text in sample_texts:
-                    result = analyze(fine_tuned_model, text[:50], top_k=2)
+                    result = analyze(FINE_TUNED_MODEL, text[:50], top_k=2)
                     init_table_dict["Text"].append(text[:50])
                     init_table_dict["Highest Toxicity Class"].append(result[0][0]['label'])
                     init_table_dict["Highest Score"].append(result[0][0]['score'])
