@@ -190,7 +190,9 @@ The Repo is now connected and synced with HuggingFace space!
 
 ## 3. Create the app
 
-Modify [app.py](app.py) so that it takes in one text and generate an analysis using one of the provided models. Details are explained in comment lines. The app should look like this:
+Modify [app.py](app.py) so that it takes in one text and generate an analysis using one of the provided models. Details are explained in comment lines. 
+
+The app should look like this:
 
 ![](milestone2/app_UI.png)
 
@@ -298,7 +300,9 @@ trainer.push_to_hub()
 
 ## 4. Update the app
 
-Modify [app.py](app.py) so that it takes in one text and generate an analysis using one of the provided models. Details are explained in comment lines. The app should look like this:
+Modify [app.py](app.py) so that it takes in one text and generate an analysis using one of the provided models. If you choose my fine-tuned model, there will be 10 more examples shown. Details are explained in comment lines. 
+
+The app should look like this:
 
 ![](milestone3/appUI.png)
 

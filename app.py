@@ -61,7 +61,8 @@ if st.button("Analyze"):
                             }
                 st.dataframe(pd.DataFrame(result_dict))
 
-                # 10 Sample Table                       
+                # 10 Sample Table   
+                st.write("Here are 10 more examples.")                    
                 sample_texts = [
                     "Please stop. If you continue to vandalize Wikipedia, as you did to Homosexuality, you will be blocked from editing.",
                     "knock it off you bloody CWI trot",
