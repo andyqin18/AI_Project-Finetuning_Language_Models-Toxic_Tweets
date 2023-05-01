@@ -14,13 +14,17 @@ pinned: false
 Hello! This is a project for CS-UY 4613: Artificial Intelligence. I'm providing a step-by-step instruction on finetuning language models for detecting toxic tweets. All codes are well commented.
 
 # Everthing you need to know
-Link to HuggingFace space: https://huggingface.co/spaces/andyqin18/sentiment-analysis-app
+* **HuggingFace app**: https://huggingface.co/spaces/andyqin18/sentiment-analysis-app
 
 ----Code behind app: [app.py](app.py)
 
-Link to finetuned model: https://huggingface.co/andyqin18/finetuned-bert-uncased
+* **Finetuned model**: https://huggingface.co/andyqin18/finetuned-bert-uncased
 
 ----Code for how to finetune a language model: [finetune.ipynb](milestone3/finetune.ipynb)
+
+* **Demonstration video**: https://youtu.be/d7qUxv-MB2M
+
+* **Landing page**: https://sites.google.com/nyu.edu/aiprojectbyandyqin/home
 
 Performance of the model using [test_model.py](test_model.py) is shown below. The result is generated on 2000 randomly selected samples from [train.csv](milestone3/comp/train.csv)
 
