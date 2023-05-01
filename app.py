@@ -98,8 +98,8 @@ if st.button("Analyze"):
             else:
                 result = analyze(user_model, user_input)
                 st.write("Result:")
-                st.write(f"Label: **{result[0]['label']}**")
-                st.write(f"Confidence Score: **{result[0]['score']}**")
+                st.write(f"Label: **{result[0][0]['label']}**")
+                st.write(f"Confidence Score: **{result[0][0]['score']}**")
 
 else:
     st.write("Go on! Try the app!")
